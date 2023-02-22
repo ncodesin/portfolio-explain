@@ -1,0 +1,42 @@
+@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap");
+.BannerBox {
+  border: 1px solid black;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 130px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: "Shantell Sans", cursive;
+}
+.BannerBox .LogoBox {
+  width: 8%;
+  padding: 10px;
+  cursor: pointer;
+}
+.BannerBox .LogoBox img {
+  width: 100%;
+}
+.BannerBox .LogoBox p {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  top: 105px;
+  left: 10px;
+  font-size: 15px;
+}
+.BannerBox .LogoBox span {
+  font-size: 20px;
+  -webkit-text-fill-color: white;
+  -webkit-text-stroke-color: blue;
+  -webkit-text-stroke-width: 1px;
+}
+.BannerBox .categoryBox {
+  margin-left: 100px;
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+}
+.BannerBox .categoryBox p {
+  font-size: 30px;
+}/*# sourceMappingURL=Banner.module.css.map */
