@@ -1,43 +1,62 @@
 .BannerBox {
   border: 1px solid black;
+  background-color: snow;
   padding-bottom: 10px;
   width: 100%;
   height: 130px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: "Shantell Sans", cursive;
+  font-family: "Allerta Stencil", sans-serif;
   .LogoBox {
     width: 8%;
     padding: 10px;
     cursor: pointer;
     img {
-      width: 100%;
+      width: 110px;
     }
     p {
       position: absolute;
       padding: 0;
       margin: 0;
       top: 105px;
-      left: 10px;
-      font-size: 15px;
+      left: 35px;
+      font-size: 20px;
     }
     span {
       font-size: 20px;
       -webkit-text-fill-color: white;
-      -webkit-text-stroke-color: blue;
+      -webkit-text-stroke-color: coral;
       -webkit-text-stroke-width: 1px;
     }
   }
   .categoryBox {
     margin-left: 100px;
-    width: 60%;
+    width: 70%;
     display: flex;
     justify-content: space-between;
     p {
+      -webkit-text-fill-color: snow;
+      -webkit-text-stroke-color: black;
+      -webkit-text-stroke-width: 1px;
+      cursor: pointer;
       font-size: 30px;
+      transition: all 0.5s;
+      background: linear-gradient(
+        180deg,
+        snow 70%,
+        rgb(100, 149, 237, 0.5) 30%
+      );
+      background-size: 200%;
+    }
+    p:hover {
+      background-position: -100% 0;
+      -webkit-text-fill-color: black;
+    }
+    p:active {
+      transform: scale(0.9);
     }
   }
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Shantell+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Allerta+Stencil&display=swap");

@@ -12,13 +12,13 @@ function Banner() {
             <div className={styles.BannerBox}>
                 <div className={styles.LogoBox}>
                     <img src={process.env.PUBLIC_URL + '/Image/main/home1.png'} />
-                    <p><span>P</span>ortfolio-explain</p>
+                    <p><span>H</span>ome</p>
                 </div>
                 <div className={styles.categoryBox}>
-                    <p>-Pages-</p>
-                    <p>-Pages-</p>
-                    <p>-Pages-</p>
-                    <p>-Pages-</p>
+                    <p>- Pages -</p>
+                    <p>- Problem -</p>
+                    <p>- Reference -</p>
+                    <p>- Project -</p>
                 </div>
             </div>
         </>
