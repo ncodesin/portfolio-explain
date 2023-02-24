@@ -1,17 +1,18 @@
 {
   "files": {
     "main.css": "/portfolio-explain/static/css/main.f5fede02.css",
-    "main.js": "/portfolio-explain/static/js/main.098b3e10.js",
+    "main.js": "/portfolio-explain/static/js/main.2fe99e7c.js",
     "static/js/787.717e5566.chunk.js": "/portfolio-explain/static/js/787.717e5566.chunk.js",
     "static/media/mainvideo.mp4": "/portfolio-explain/static/media/mainvideo.a953220c7ec5663c7642.mp4",
+    "static/media/아름.jpg": "/portfolio-explain/static/media/아름.05cd8daf1a3bd895a595.jpg",
     "static/media/logo.svg": "/portfolio-explain/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/portfolio-explain/index.html",
     "main.f5fede02.css.map": "/portfolio-explain/static/css/main.f5fede02.css.map",
-    "main.098b3e10.js.map": "/portfolio-explain/static/js/main.098b3e10.js.map",
+    "main.2fe99e7c.js.map": "/portfolio-explain/static/js/main.2fe99e7c.js.map",
     "787.717e5566.chunk.js.map": "/portfolio-explain/static/js/787.717e5566.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f5fede02.css",
-    "static/js/main.098b3e10.js"
+    "static/js/main.2fe99e7c.js"
   ]
 }
