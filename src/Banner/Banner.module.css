@@ -3,6 +3,7 @@
   border: 1px solid black;
   background-color: snow;
   padding-bottom: 10px;
+  position: fixed;
   width: 100%;
   height: 100px;
   display: flex;
@@ -32,6 +33,21 @@
   -webkit-text-fill-color: white;
   -webkit-text-stroke-color: coral;
   -webkit-text-stroke-width: 1px;
+}
+@media (max-width: 700px) {
+  .BannerBox .LogoBox span,
+  .BannerBox .LogoBox p {
+    font-size: 13px;
+  }
+  .BannerBox .LogoBox img {
+    margin-left: 10px;
+    width: 70px;
+  }
+}
+@media (max-width: 700px) {
+  .BannerBox .LogoBox {
+    width: 3%;
+  }
 }
 .BannerBox .categoryBox {
   margin-left: 100px;
@@ -72,12 +88,17 @@
   transform: scale(0.9);
 }
 @media (max-width: 1000px) {
-  .BannerBox .categoryBox p {
+  .BannerBox .categoryBox span {
     font-size: 20px;
   }
 }
 @media (max-width: 700px) {
-  .BannerBox .categoryBox p {
+  .BannerBox .categoryBox span {
     font-size: 13px;
+  }
+}
+@media (max-width: 700px) {
+  .BannerBox .categoryBox {
+    margin-left: 70px;
   }
 }/*# sourceMappingURL=Banner.module.css.map */

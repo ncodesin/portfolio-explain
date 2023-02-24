@@ -70,7 +70,16 @@ function Banner() {
                     }}>- Project -</span></p>
                 </div>
             </div>
-            {catecount[0] == 1 ? <div>하하하</div> : false}
+            {/* {catecount[0] == 1 ?
+                <div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                    <p></p>
+                </div>
+                : false
+            } */}
         </>
     )
 }

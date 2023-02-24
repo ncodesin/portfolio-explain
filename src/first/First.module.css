@@ -1,1 +1,24 @@
-/*# sourceMappingURL=First.module.css.map */
+@import url("https://fonts.googleapis.com/css2?family=Dongle:wght@700&display=swap");
+.textBox {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.textBox .maintext {
+  font-family: "Dongle", sans-serif;
+  color: white;
+  font-size: 70px;
+}
+@media (max-width: 1000px) {
+  .textBox .maintext {
+    font-size: 50px;
+  }
+}
+@media (max-width: 700px) {
+  .textBox .maintext {
+    font-size: 30px;
+  }
+}/*# sourceMappingURL=First.module.css.map */
