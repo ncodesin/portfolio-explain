@@ -2,6 +2,7 @@ import { useEffect, useRef } from 'react';
 import Banner from '../Banner/Banner';
 import styles from './First.module.css';
 import mainvideo from './mainvideo.mp4'
+import arum from './아름.jpg'
 
 export default function First() {
 
@@ -9,24 +10,66 @@ export default function First() {
     const bannerRef = useRef(null);
     const textboxRef = useRef(null);
     const textAniRef = useRef(null);
+    const contentboxRef = useRef([]);
+    contentboxRef.current = [];
+    const contentbox = contentboxRef.current;
+
+    const addTocontent = (el) => {
+        if (el && !contentbox.includes(el)) {
+            contentbox.push(el)
+        }
+    }
+    function scroll1() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+    function scroll2() {
+        window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+    }
+    function scroll3() {
+        window.scrollTo({ top: window.innerHeight * 2, behavior: 'smooth' });
+    }
+    function scroll4() {
+        window.scrollTo({ top: window.innerHeight * 3, behavior: 'smooth' });
+    }
+    function scroll5() {
+        window.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' });
+    }
+
     useEffect(() => {
-        const container = containerRef.current
-        const textbox = textboxRef.current
-        const textAni = textAniRef.current
-        container.style.transform = "translateY(111px)"
-        textbox.style.transform = "translateY(111px)"
+        const container = containerRef.current;
+        const textbox = textboxRef.current;
+        const textAni = textAniRef.current;
+        const colorbox = ["yellow", "cornflowerblue", "coral", "orange"];
+        container.style.marginTop = 111 + "px";
+        // textbox.style.transform = "translateY(111px)"
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
         textbox.style.width = container.width + "px"
         textbox.style.height = container.height + "px"
         container.style.objectFit = "cover"
-        console.log(container, textbox, textbox.width)
+        contentbox.forEach((v, i) => {
+            v.style.backgroundColor = colorbox[i]
+            v.style.width = container.width + "px"
+            v.style.height = container.height + "px"
+            v.style.marginTop = 109 + "px"
+
+
+        })
 
         window.addEventListener('resize', () => {
             container.width = window.innerWidth
             container.height = window.innerHeight - 111
             textbox.style.width = container.width + "px"
             textbox.style.height = container.height + "px"
+            contentbox.forEach((v, i) => {
+                v.style.backgroundColor = colorbox[i]
+                v.style.width = container.width + "px"
+                v.style.height = container.height + "px"
+                v.style.marginTop = 111 + "px"
+
+
+            })
+
         })
 
         const textani = () => {
@@ -50,14 +93,14 @@ export default function First() {
 
     return (
         <>
-            <Banner />
-            <div>
+            <div className={styles.outbox}>
                 <video
                     ref={containerRef}
                     playsInline
                     autoPlay
                     loop
                     muted
+                    poster={arum}
                     preload='auto'
                 >
                     <source src={mainvideo} type='video/mp4' />
@@ -70,7 +113,29 @@ export default function First() {
                         현재 제작중인 페이지입니다 (2023.02.22 ~) <br />
                     </p>
                 </div>
+                <div ref={addTocontent}></div>
+                <div ref={addTocontent}></div>
+                <div ref={addTocontent}></div>
+                <div ref={addTocontent}></div>
             </div>
+            <div className={styles.slidebutton}>
+                <span onClick={() => {
+                    scroll1();
+                }}>1</span>
+                <span onClick={() => {
+                    scroll2();
+                }}>2</span>
+                <span onClick={() => {
+                    scroll3();
+                }}>3</span>
+                <span onClick={() => {
+                    scroll4();
+                }}>4</span>
+                <span onClick={() => {
+                    scroll5();
+                }}>5</span>
+            </div>
+            <Banner />
         </>
     )
 }

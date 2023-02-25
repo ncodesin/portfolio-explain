@@ -7,8 +7,16 @@ function Banner() {
     const cateRef = useRef([]);
     cateRef.current = [];
     const cate = cateRef.current;
+    const catemenuRef = useRef([]);
+    catemenuRef.current = [];
+    const catemenu = catemenuRef.current;
     const [catecount, setCatecount] = useState([0, 0, 0, 0]);
     const addTocate = (el) => {
+        if (el && !cate.includes(el)) {
+            cate.push(el)
+        }
+    }
+    const addTomenu = (el) => {
         if (el && !cate.includes(el)) {
             cate.push(el)
         }
@@ -57,7 +65,7 @@ function Banner() {
                             copy = [0, 0, 0, 0];
                             setCatecount(copy)
                         }
-                    }}>- Reference -</span></p>
+                    }}>- Project -</span></p>
                     <p><span ref={addTocate} onClick={(e) => {
                         let copy = [...catecount];
                         if (catecount[3] == 0) {
@@ -67,9 +75,13 @@ function Banner() {
                             copy = [0, 0, 0, 0];
                             setCatecount(copy)
                         }
-                    }}>- Project -</span></p>
+                    }}>- Reference -</span></p>
                 </div>
             </div>
+            <div ref={addTomenu}></div>
+            <div ref={addTomenu}></div>
+            <div ref={addTomenu}></div>
+            <div ref={addTomenu}></div>
             {/* {catecount[0] == 1 ?
                 <div>
                     <p></p>
