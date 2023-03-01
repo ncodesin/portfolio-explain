@@ -121,6 +121,9 @@
   cursor: pointer;
   transition: font-size 0.5s;
 }
+.catemenu p:hover {
+  color: cornflowerblue;
+}
 @media (max-width: 800px) {
   .catemenu p {
     font-size: small;
