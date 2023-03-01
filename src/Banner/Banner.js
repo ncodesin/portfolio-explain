@@ -17,13 +17,38 @@ function Banner() {
         }
     }
     const addTomenu = (el) => {
-        if (el && !cate.includes(el)) {
-            cate.push(el)
+        if (el && !catemenu.includes(el)) {
+            catemenu.push(el)
         }
     }
     useEffect(() => {
         const bannerBox = bannerboxRef.current;
         filltext(cate, catecount, setCatecount);
+        function menucont() {
+            catemenu.forEach((v, i) => {
+                if (catecount[i] == 1) {
+                    v.animate([
+                        { top: 0, opacity: 0 },
+                        { top: 110 + "px", opacity: 1 }
+                    ], {
+                        duration: 300,
+                        fill: "forwards",
+                        ease: "ease-in"
+
+                    })
+                }
+                if (catecount[i] == 0) {
+                    v.animate([
+                        { top: 0, opacity: 0 },
+                    ], {
+                        duration: 300,
+                        fill: "forwards",
+                        ease: "ease-in"
+                    })
+                }
+            })
+        }
+        menucont()
     })
 
 
@@ -78,10 +103,25 @@ function Banner() {
                     }}>- Reference -</span></p>
                 </div>
             </div>
-            <div ref={addTomenu}></div>
-            <div ref={addTomenu}></div>
-            <div ref={addTomenu}></div>
-            <div ref={addTomenu}></div>
+            <div className={styles.catemenu} ref={addTomenu}>
+                <p>Main Page</p>
+                <p>List Page</p>
+                <p>Profile Page</p>
+                <p>Experience page</p>
+                <p>ABOUT Tap</p>
+                {/* <canvas ref={menucanvas}></canvas> */}
+            </div>
+            <div className={styles.catemenu} ref={addTomenu}>
+                <p>현재의 문제점</p>
+                <p>해결된 문제점</p>
+            </div>
+            <div className={styles.catemenu} ref={addTomenu}>
+                <p>진행중인 프로젝트</p>
+                <p>완료된 프로젝트</p>
+            </div>
+            <div className={styles.catemenu} ref={addTomenu}>
+                <p>Reference</p>
+            </div>
             {/* {catecount[0] == 1 ?
                 <div>
                     <p></p>

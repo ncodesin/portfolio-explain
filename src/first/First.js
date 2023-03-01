@@ -8,11 +8,12 @@ export default function First() {
 
     const containerRef = useRef(null);
     const bannerRef = useRef(null);
-    const textboxRef = useRef(null);
     const textAniRef = useRef(null);
     const contentboxRef = useRef([]);
     contentboxRef.current = [];
     const contentbox = contentboxRef.current;
+    const outboxRef = useRef(null);
+    const outbox = outboxRef.current;
 
     const addTocontent = (el) => {
         if (el && !contentbox.includes(el)) {
@@ -37,15 +38,11 @@ export default function First() {
 
     useEffect(() => {
         const container = containerRef.current;
-        const textbox = textboxRef.current;
         const textAni = textAniRef.current;
-        const colorbox = ["yellow", "cornflowerblue", "coral", "orange"];
+        const colorbox = ["lightgray", "yellow", "cornflowerblue", "coral", "orange"];
         container.style.marginTop = 111 + "px";
-        // textbox.style.transform = "translateY(111px)"
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
-        textbox.style.width = container.width + "px"
-        textbox.style.height = container.height + "px"
         container.style.objectFit = "cover"
         contentbox.forEach((v, i) => {
             v.style.backgroundColor = colorbox[i]
@@ -59,8 +56,6 @@ export default function First() {
         window.addEventListener('resize', () => {
             container.width = window.innerWidth
             container.height = window.innerHeight - 111
-            textbox.style.width = container.width + "px"
-            textbox.style.height = container.height + "px"
             contentbox.forEach((v, i) => {
                 v.style.backgroundColor = colorbox[i]
                 v.style.width = container.width + "px"
@@ -93,7 +88,7 @@ export default function First() {
 
     return (
         <>
-            <div className={styles.outbox}>
+            <div ref={outboxRef} className={styles.outbox}>
                 <video
                     ref={containerRef}
                     playsInline
@@ -105,7 +100,7 @@ export default function First() {
                 >
                     <source src={mainvideo} type='video/mp4' />
                 </video>
-                <div ref={textboxRef} className={styles.textBox}>
+                <div ref={addTocontent} className={styles.textBox}>
                     <p ref={textAniRef} className={styles.maintext}>
                         안녕하세요<br />
                         이곳은 저의 포트폴리오와 프로젝트의 전반적인<br />

@@ -13,9 +13,9 @@ body {
   overflow: hidden;
   .textBox {
     // z-index: 100;
-    background-color: rgb(0, 0, 0, 0.5);
+    background-color: rgb(0, 0, 0, 0.5) !important;
     position: absolute;
-    top: 111px;
+    top: 0px;
     display: flex;
     align-items: center;
     justify-content: center;

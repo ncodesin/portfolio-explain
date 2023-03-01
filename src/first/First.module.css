@@ -12,9 +12,9 @@ body {
   overflow: hidden;
 }
 .outbox .textBox {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5) !important;
   position: absolute;
-  top: 111px;
+  top: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
