@@ -3,6 +3,8 @@ import Banner from '../Banner/Banner';
 import styles from './First.module.css';
 import mainvideo from './mainvideo.mp4'
 import arum from './아름.jpg'
+import kakao from './kakao.png'
+import Top from './top.png'
 import $ from 'jquery';
 
 export default function First() {
@@ -14,12 +16,28 @@ export default function First() {
     contentboxRef.current = [];
     const contentbox = contentboxRef.current;
     const outboxRef = useRef();
+    const dotRef = useRef([]);
+    dotRef.current = [];
+    const dots = dotRef.current
+    const DotRef = useRef([]);
+    DotRef.current = [];
+    const Dots = DotRef.current;
 
     const addTocontent = (el) => {
         if (el && !contentbox.includes(el)) {
             contentbox.push(el)
         }
     }
+    const addTodot = (el) => {
+        if (el && !dots.includes(el)) {
+            dots.push(el)
+        };
+    };
+    const addToDot = (el) => {
+        if (el && !Dots.includes(el)) {
+            Dots.push(el)
+        };
+    };
     function scroll1() {
         outboxRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -40,7 +58,7 @@ export default function First() {
         const container = containerRef.current;
         const textAni = textAniRef.current;
         const outbox = outboxRef.current;
-        const colorbox = ["lightgray", "yellow", "cornflowerblue", "coral", "orange"];
+        const colorbox = ["lightgray", "gray", "cornflowerblue", "coral", "orange"];
         // container.style.marginTop = 111 + "px";
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
@@ -81,6 +99,7 @@ export default function First() {
             const { deltaY } = e;
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
+            const pageNum = (Math.floor(scrollTop / screenHeight))
             console.log({ scrollTop })
             setTimeout(() => {
 
@@ -102,8 +121,103 @@ export default function First() {
             }, 300)
         };
 
-        outbox.addEventListener("wheel", screenHandler);
+        function start() {
+            if (
+                outbox.scrollTop == 0
+            ) {
+                dots[0].animate({
+                    opacity: 1,
+                }, {
+                    duration: 100,
+                    fill: "forwards"
+                })
+            }
+        }
 
+        start();
+
+        const Dotview = () => {
+            const { scrollTop } = outbox;
+            const screenHeight = window.innerHeight;
+            const pageNum = (Math.floor(scrollTop / screenHeight))
+            if (scrollTop == screenHeight * pageNum) {
+                dots[pageNum].animate({
+                    opacity: 1,
+                }, {
+                    duration: 150,
+                    fill: "forwards"
+                })
+            } else {
+                dots.forEach((v, i) => {
+                    v.animate({
+                        opacity: 0,
+                    }, {
+                        duration: 150,
+                        fill: "forwards"
+                    })
+                })
+            }
+            if (scrollTop >= screenHeight) {
+                dots.forEach((v, i) => {
+                    v.style.backgroundColor = "black"
+                })
+                Dots.forEach((v, i) => {
+                    v.style.borderColor = "black"
+                })
+            } else {
+                dots.forEach((v, i) => {
+                    v.style.backgroundColor = "lightgray"
+                })
+                Dots.forEach((v, i) => {
+                    v.style.borderColor = "lightgray"
+                })
+            }
+        }
+        const Dotview2 = (e) => {
+            console.log(e);
+            const { scrollTop } = outbox;
+            const screenHeight = window.innerHeight;
+            const pageNum = (Math.floor(scrollTop / screenHeight))
+            if (scrollTop == screenHeight * pageNum) {
+                dots[pageNum].animate({
+                    opacity: 1,
+                }, {
+                    duration: 150,
+                    fill: "forwards"
+                })
+            } else {
+                dots.forEach((v, i) => {
+                    v.animate({
+                        opacity: 0,
+                    }, {
+                        duration: 150,
+                        fill: "forwards"
+                    })
+                })
+            }
+            if (scrollTop >= screenHeight) {
+                dots.forEach((v, i) => {
+                    v.style.backgroundColor = "black"
+                })
+                Dots.forEach((v, i) => {
+                    v.style.borderColor = "black"
+                })
+            } else {
+                dots.forEach((v, i) => {
+                    v.style.backgroundColor = "lightgray"
+                })
+                Dots.forEach((v, i) => {
+                    v.style.borderColor = "lightgray"
+                })
+            }
+        }
+        outbox.addEventListener("scroll", Dotview);
+        outbox.addEventListener("wheel", screenHandler);
+        outbox.addEventListener("touchmove", Dotview2)
+
+        window.onload = () => {
+            outbox.scrollTo({ top: 0, behavior: "smooth" })
+        }
 
         const textani = () => {
             textAni.animate([
@@ -124,6 +238,7 @@ export default function First() {
         textani()
 
         return () => {
+            outbox.removeEventListener("scroll", Dotview);
             outbox.removeEventListener("wheel", screenHandler)
         };
     })
@@ -159,21 +274,46 @@ export default function First() {
                 <div className='content' ref={addTocontent}></div>
             </div>
             <div className={styles.slidebutton}>
-                <span onClick={() => {
+                <span ref={addToDot} onClick={() => {
                     scroll1();
-                }}>1</span>
-                <span onClick={() => {
+                }}>
+                    <p ref={addTodot}></p>
+                </span>
+                <span ref={addToDot} onClick={() => {
                     scroll2();
-                }}>2</span>
-                <span onClick={() => {
+                }}>
+                    <p ref={addTodot}></p>
+                </span>
+                <span ref={addToDot} onClick={() => {
                     scroll3();
-                }}>3</span>
-                <span onClick={() => {
+                }}>
+                    <p ref={addTodot}></p>
+                </span>
+                <span ref={addToDot} onClick={() => {
                     scroll4();
-                }}>4</span>
-                <span onClick={() => {
+                }}>
+                    <p ref={addTodot}></p>
+                </span>
+                <span ref={addToDot} onClick={() => {
                     scroll5();
-                }}>5</span>
+                }}>
+                    <p ref={addTodot}></p>
+                </span>
+            </div>
+            <div className={styles.Rightsidebutton}>
+                <div>
+                    <img src={kakao} />
+                </div>
+                <div>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+                <div onClick={() => {
+
+                }}>
+                    <img src={Top} />
+                </div>
             </div>
             <Banner />
         </>
