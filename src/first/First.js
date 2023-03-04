@@ -38,6 +38,12 @@ export default function First() {
             Dots.push(el)
         };
     };
+
+    function goTop() {
+        outboxRef.current.scrollTo({ top: 0, behavior: "smooth" })
+    }
+
+
     function scroll1() {
         outboxRef.current.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -310,7 +316,7 @@ export default function First() {
                     <span></span>
                 </div>
                 <div onClick={() => {
-
+                    goTop();
                 }}>
                     <img src={Top} />
                 </div>
