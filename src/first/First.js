@@ -142,45 +142,80 @@ export default function First() {
 
         start();
 
-        const Dotview = () => {
-            const { scrollTop } = outbox;
-            const screenHeight = window.innerHeight;
-            const pageNum = (Math.floor(scrollTop / screenHeight))
-            if (scrollTop == screenHeight * pageNum) {
-                dots[pageNum].animate({
-                    opacity: 1,
-                }, {
-                    duration: 150,
-                    fill: "forwards"
-                })
-            } else {
-                dots.forEach((v, i) => {
-                    v.animate({
-                        opacity: 0,
-                    }, {
-                        duration: 150,
-                        fill: "forwards"
-                    })
-                })
+        const touchmove = () => {
+            let initialX = null,
+                initialY = null;
+
+            function initTouch(e) {
+                initialX = `${e.touches ? e.touches[0].clientX : e.clientX}`;
+                initialY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+            };
+
+            function swipeDirection(e) {
+                if (initialX !== null && initialY !== null) {
+                    const currentX = `${e.touches ? e.touches[0].clientX : e.clientX}`,
+                        currentY = `${e.touches ? e.touches[0].clientY : e.clientY}`;
+
+                    let diffX = initialX - currentX,
+                        diffY = initialY - currentY;
+
+                    console.log(diffY)
+
+                    Math.abs(diffX) > Math.abs(diffY)
+                        ? (
+                            0 < diffX
+                                ? console.log("to left")
+                                : console.log("to right")
+                        )
+                        : (
+                            0 < diffY
+                                ? console.log("to top")
+                                : console.log("to bottom")
+                        )
+
+                    initialX = null;
+                    initialY = null;
+
+                    const { scrollTop } = outbox;
+                    const screenHeight = window.innerHeight;
+                    const pageNum = (Math.floor(scrollTop / screenHeight))
+
+
+                    if (diffY > 0) {
+                        if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
+                            outbox.scrollTo({
+                                top: screenHeight * (Math.floor(scrollTop / screenHeight) + 1),
+                                behavior: "smooth"
+                            })
+                        }
+                    } else {
+                        if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
+                            outbox.scrollTo({
+                                top: screenHeight * (Math.floor(scrollTop / screenHeight) - 1),
+                                behavior: "smooth"
+                            })
+                        }
+                    }
+
+
+                }
+
             }
-            if (scrollTop >= screenHeight) {
-                dots.forEach((v, i) => {
-                    v.style.backgroundColor = "black"
-                })
-                Dots.forEach((v, i) => {
-                    v.style.borderColor = "black"
-                })
-            } else {
-                dots.forEach((v, i) => {
-                    v.style.backgroundColor = "lightgray"
-                })
-                Dots.forEach((v, i) => {
-                    v.style.borderColor = "lightgray"
-                })
-            }
+
+            outbox.addEventListener("touchstart", initTouch);
+            outbox.addEventListener("touchmove", swipeDirection);
+            outbox.addEventListener("mousedown", (e) => {
+                initTouch(e);
+                outbox.addEventListener("mousemove", swipeDirection)
+            });
+            outbox.addEventListener("mouseup", () => {
+                outbox.removeEventListener("mousemove", swipeDirection);
+            });
         }
-        const Dotview2 = (e) => {
-            console.log(e);
+
+        touchmove();
+
+        const Dotview = () => {
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
             const pageNum = (Math.floor(scrollTop / screenHeight))
@@ -219,7 +254,6 @@ export default function First() {
         }
         outbox.addEventListener("scroll", Dotview);
         outbox.addEventListener("wheel", screenHandler);
-        outbox.addEventListener("touchmove", Dotview2)
 
         window.onload = () => {
             outbox.scrollTo({ top: 0, behavior: "smooth" })
