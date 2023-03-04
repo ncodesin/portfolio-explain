@@ -204,13 +204,13 @@ export default function First() {
 
             outbox.addEventListener("touchstart", initTouch);
             outbox.addEventListener("touchmove", swipeDirection);
-            outbox.addEventListener("mousedown", (e) => {
+            outbox.addEventListener("touchstart", (e) => {
                 initTouch(e);
-                outbox.addEventListener("mousemove", swipeDirection)
+                outbox.addEventListener("touchmove", swipeDirection)
             });
-            outbox.addEventListener("mouseup", () => {
-                outbox.removeEventListener("mousemove", swipeDirection);
-            });
+            // outbox.addEventListener("mouseup", () => {
+            //     outbox.removeEventListener("mousemove", swipeDirection);
+            // });
         }
 
         touchmove();
@@ -256,7 +256,8 @@ export default function First() {
         outbox.addEventListener("wheel", screenHandler);
 
         window.onload = () => {
-            outbox.scrollTo({ top: 0, behavior: "smooth" })
+            // outbox.scrollTo({ top: 0, behavior: "smooth" })
+            outbox.animate({ scrollY: 0 }, 1000)
         }
 
         const textani = () => {
