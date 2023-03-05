@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/portfolio-explain/static/css/main.12d4fe09.css",
-    "main.js": "/portfolio-explain/static/js/main.97796a7c.js",
+    "main.css": "/portfolio-explain/static/css/main.02474a58.css",
+    "main.js": "/portfolio-explain/static/js/main.58015643.js",
     "static/js/787.717e5566.chunk.js": "/portfolio-explain/static/js/787.717e5566.chunk.js",
     "static/media/mainvideo.mp4": "/portfolio-explain/static/media/mainvideo.a953220c7ec5663c7642.mp4",
     "static/media/아름.jpg": "/portfolio-explain/static/media/아름.05cd8daf1a3bd895a595.jpg",
     "static/media/top.png": "/portfolio-explain/static/media/top.126831aca341078f6568.png",
     "static/media/logo.svg": "/portfolio-explain/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/portfolio-explain/index.html",
-    "main.12d4fe09.css.map": "/portfolio-explain/static/css/main.12d4fe09.css.map",
-    "main.97796a7c.js.map": "/portfolio-explain/static/js/main.97796a7c.js.map",
+    "main.02474a58.css.map": "/portfolio-explain/static/css/main.02474a58.css.map",
+    "main.58015643.js.map": "/portfolio-explain/static/js/main.58015643.js.map",
     "787.717e5566.chunk.js.map": "/portfolio-explain/static/js/787.717e5566.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.12d4fe09.css",
-    "static/js/main.97796a7c.js"
+    "static/css/main.02474a58.css",
+    "static/js/main.58015643.js"
   ]
 }
