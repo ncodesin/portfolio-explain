@@ -259,6 +259,7 @@ export default function First() {
         }
         outbox.addEventListener("scroll", Dotview);
         outbox.addEventListener("wheel", screenHandler);
+        outbox.addEventListener("touchstart", Dotview)
 
         window.onload = () => {
             outbox.scrollTo({ top: 0, behavior: "smooth" })
