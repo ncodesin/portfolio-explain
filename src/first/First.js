@@ -208,7 +208,7 @@ export default function First() {
                 initTouch(e);
                 outbox.addEventListener("touchmove", swipeDirection)
             });
-            outbox.addEventListener("touchend", () => {
+            outbox.addEventListener("mouseup", () => {
                 outbox.removeEventListener("mousemove", swipeDirection);
             });
         }

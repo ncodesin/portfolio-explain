@@ -91,6 +91,11 @@ html {
   }
 }
 
+@media (max-width: 700px) {
+  .Rightsidebutton {
+    right: 20px;
+  }
+}
 .slidebutton {
   position: fixed;
   display: flex;
@@ -129,5 +134,11 @@ html {
   .slidebutton span p {
     width: 7px;
     height: 7px;
+  }
+}
+
+@media (max-width: 700px) {
+  .slidebutton {
+    left: 20px;
   }
 }/*# sourceMappingURL=First.module.css.map */
