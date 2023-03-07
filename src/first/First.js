@@ -22,6 +22,7 @@ export default function First() {
     const DotRef = useRef([]);
     DotRef.current = [];
     const Dots = DotRef.current;
+    const secondctRef = useRef(null);
 
     const addTocontent = (el) => {
         if (el && !contentbox.includes(el)) {
@@ -64,7 +65,7 @@ export default function First() {
         const container = containerRef.current;
         const textAni = textAniRef.current;
         const outbox = outboxRef.current;
-        const colorbox = ["lightgray", "gray", "cornflowerblue", "coral", "orange"];
+        const colorbox = ["lightgray", "", "cornflowerblue", "coral", "orange"];
         // container.style.marginTop = 111 + "px";
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
@@ -219,7 +220,8 @@ export default function First() {
 
         touchmove();
 
-
+        
+        
         const Dotview = () => {
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
@@ -281,6 +283,16 @@ export default function First() {
             ], 1000)
         }
         textani()
+        const secondCT = () => {
+            const { scrollTop } = outbox;
+            const secondct = secondctRef.current;
+            console.log(secondct);
+            secondct.style.width = 100 + "px"
+            secondct.style.height = 300 + "px"
+            
+        }
+
+        secondCT()
 
         return () => {
             outbox.removeEventListener("scroll", Dotview);
@@ -313,7 +325,9 @@ export default function First() {
                         </p>
                     </div>
                 </div>
-                <div className='content' ref={addTocontent}></div>
+                <div className='content' ref={addTocontent}>
+                    <div className={styles.secondct} ref={secondctRef}></div>
+                </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>

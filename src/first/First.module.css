@@ -45,6 +45,10 @@ html {
     font-size: 30px;
   }
 }
+.outbox .secondct {
+  background-image: url(office1.png);
+  background-size: cover;
+}
 
 .Rightsidebutton {
   position: fixed;
