@@ -6,6 +6,7 @@ import arum from './아름.jpg'
 import kakao from './kakao.png'
 import Top from './top.png'
 import $ from 'jquery';
+import office1 from './office1.png'
 
 export default function First() {
 
@@ -15,7 +16,7 @@ export default function First() {
     const contentboxRef = useRef([]);
     contentboxRef.current = [];
     const contentbox = contentboxRef.current;
-    const outboxRef = useRef();
+    const outboxRef = useRef(null);
     const dotRef = useRef([]);
     dotRef.current = [];
     const dots = dotRef.current
@@ -60,11 +61,10 @@ export default function First() {
     function scroll5() {
         outboxRef.current.scrollTo({ top: window.innerHeight * 4, behavior: 'smooth' });
     }
-
     useEffect(() => {
+        const outbox = outboxRef.current;
         const container = containerRef.current;
         const textAni = textAniRef.current;
-        const outbox = outboxRef.current;
         const colorbox = ["lightgray", "", "cornflowerblue", "coral", "orange"];
         // container.style.marginTop = 111 + "px";
         container.width = window.innerWidth
@@ -108,21 +108,23 @@ export default function First() {
             const { deltaY } = e;
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
-            const pageNum = (Math.floor(scrollTop / screenHeight))
-            console.log({ scrollTop })
+            const pageNum = (Math.floor( Math.round(scrollTop) / screenHeight))
+            const pageHeight = screenHeight * pageNum
+            console.log({outboxheight: outbox.clientHeight , screenHeight : screenHeight});
+            console.log({ scrollTop : Math.round(scrollTop) ,pageNum : pageNum, pageHeight : pageHeight});
             setTimeout(() => {
 
                 if (deltaY > 0) {
                     if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
                         outbox.scrollTo({
-                            top: screenHeight * (Math.floor(scrollTop / screenHeight) + 1) + Distance * (Math.floor(scrollTop / screenHeight) + 1),
+                            top: screenHeight * (Math.floor(Math.round(scrollTop) / screenHeight) + 1) + Distance,
                             behavior: "smooth"
                         })
                     }
                 } else {
                     if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
                         outbox.scrollTo({
-                            top: screenHeight * (Math.floor(scrollTop / screenHeight) - 1) + Distance * (Math.floor(scrollTop / screenHeight) + 1),
+                            top: screenHeight * (Math.floor(Math.round(scrollTop) / screenHeight) - 1) + Distance,
                             behavior: "smooth"
                         })
                     }
@@ -225,12 +227,12 @@ export default function First() {
         const Dotview = () => {
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
-            const pageNum = (Math.floor(scrollTop / screenHeight))
-            if (scrollTop == screenHeight * pageNum) {
+            const pageNum = (Math.floor(Math.round(scrollTop) / screenHeight))
+            if (Math.round(scrollTop) == screenHeight * pageNum) {
                 dots[pageNum].animate({
                     opacity: 1,
                 }, {
-                    duration: 150,
+                    duration: 100,
                     fill: "forwards"
                 })
             } else {
@@ -238,12 +240,12 @@ export default function First() {
                     v.animate({
                         opacity: 0,
                     }, {
-                        duration: 150,
+                        duration: 100,
                         fill: "forwards"
                     })
                 })
             }
-            if (scrollTop >= screenHeight) {
+            if (Math.round(scrollTop) >= screenHeight) {
                 dots.forEach((v, i) => {
                     v.style.backgroundColor = "black"
                 })
@@ -283,16 +285,6 @@ export default function First() {
             ], 1000)
         }
         textani()
-        const secondCT = () => {
-            const { scrollTop } = outbox;
-            const secondct = secondctRef.current;
-            console.log(secondct);
-            secondct.style.width = 100 + "px"
-            secondct.style.height = 300 + "px"
-            
-        }
-
-        secondCT()
 
         return () => {
             outbox.removeEventListener("scroll", Dotview);
@@ -326,7 +318,7 @@ export default function First() {
                     </div>
                 </div>
                 <div className='content' ref={addTocontent}>
-                    <div className={styles.secondct} ref={secondctRef}></div>
+                    <img className={styles.secondctimg} src={office1}/>
                 </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>
