@@ -188,14 +188,14 @@ export default function First() {
                     if (diffY > 0) {
                         if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
                             outbox.scrollTo({
-                                top: screenHeight * (Math.floor(scrollTop / screenHeight) + 1) + (Distance + 0.15) * (Math.floor(scrollTop / screenHeight) + 1),
+                                top: screenHeight * (Math.floor(scrollTop / screenHeight) + 1) + (Distance + 2),
                                 behavior: "smooth"
                             })
                         }
                     } else {
                         if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
                             outbox.scrollTo({
-                                top: screenHeight * (Math.floor(scrollTop / screenHeight) - 1) + (Distance + 0.15) * (Math.floor(scrollTop / screenHeight) + 1),
+                                top: screenHeight * (Math.floor(scrollTop / screenHeight) - 1) + (Distance + 2),
                                 behavior: "smooth"
                             })
                         }
