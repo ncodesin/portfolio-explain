@@ -321,7 +321,7 @@ export default function First() {
                 </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>
-                <div className='content' ref={addTocontent}></div>
+                {/* <div className='content' ref={addTocontent}></div> */}
             </div>
             <div className={styles.slidebutton}>
                 <span ref={addToDot} onClick={() => {
@@ -344,11 +344,11 @@ export default function First() {
                 }}>
                     <p ref={addTodot}></p>
                 </span>
-                <span ref={addToDot} onClick={() => {
+                {/* <span ref={addToDot} onClick={() => {
                     scroll5();
                 }}>
                     <p ref={addTodot}></p>
-                </span>
+                </span> */}
             </div>
             <div className={styles.Rightsidebutton}>
                 <div>
