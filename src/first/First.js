@@ -65,7 +65,7 @@ export default function First() {
         const outbox = outboxRef.current;
         const container = containerRef.current;
         const textAni = textAniRef.current;
-        const colorbox = ["lightgray", "", "cornflowerblue", "coral", "orange"];
+        const colorbox = ["lightgray", "gray", "cornflowerblue", "coral", "orange"];
         // container.style.marginTop = 111 + "px";
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
@@ -108,10 +108,10 @@ export default function First() {
             const { deltaY } = e;
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
-            const pageNum = (Math.floor( Math.round(scrollTop) / screenHeight))
+            const pageNum = (Math.floor(Math.round(scrollTop) / screenHeight))
             const pageHeight = screenHeight * pageNum
-            console.log({outboxheight: outbox.clientHeight , screenHeight : screenHeight});
-            console.log({ scrollTop : Math.round(scrollTop) ,pageNum : pageNum, pageHeight : pageHeight});
+            console.log({ outboxheight: outbox.clientHeight, screenHeight: screenHeight });
+            console.log({ scrollTop: Math.round(scrollTop), pageNum: pageNum, pageHeight: pageHeight });
             setTimeout(() => {
 
                 if (deltaY > 0) {
@@ -222,8 +222,8 @@ export default function First() {
 
         touchmove();
 
-        
-        
+
+
         const Dotview = () => {
             const { scrollTop } = outbox;
             const screenHeight = window.innerHeight;
@@ -313,12 +313,11 @@ export default function First() {
                             안녕하세요<br />
                             이곳은 저의 포트폴리오와 프로젝트의 전반적인<br />
                             내용을 설명하고 관리하는 페이지입니다.<br />
-                            현재 제작중인 페이지입니다 (2023.02.22 ~) <br />
+                            현재 제작중인 페이지입니다. <br />
                         </p>
                     </div>
                 </div>
                 <div className='content' ref={addTocontent}>
-                    <img className={styles.secondctimg} src={office1}/>
                 </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>
