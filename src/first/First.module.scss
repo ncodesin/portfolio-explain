@@ -50,15 +50,19 @@ html {
       }
     }
   }
-  .secondct{
+  .secondct {
     width: 10px;
     background-image: url(office1.png);
     background-size: cover;
   }
-  .secondctimg{
+  .secondctimg {
     width: 100%;
     height: 80%;
     filter: blur(3px);
+  }
+  .office {
+    width: 100%;
+    filter: blur(1px);
   }
 }
 .Rightsidebutton {

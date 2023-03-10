@@ -54,6 +54,10 @@ html {
   height: 80%;
   filter: blur(3px);
 }
+.outbox .office {
+  width: 100%;
+  filter: blur(1px);
+}
 
 .Rightsidebutton {
   position: fixed;

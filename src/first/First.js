@@ -6,7 +6,7 @@ import arum from './아름.jpg'
 import kakao from './kakao.png'
 import Top from './top.png'
 import $ from 'jquery';
-import office1 from './office1.png'
+import office from './office2.png'
 
 export default function First() {
 
@@ -183,22 +183,28 @@ export default function First() {
                     initialY = null;
 
                     const { scrollTop } = outbox;
-                    const pageNum = (Math.floor(scrollTop / screenHeight))
+                    const pageNum = (Math.floor(Math.round(scrollTop) / screenHeight))
 
 
                     console.log(scrollTop);
 
                     if (diffY > 0) {
-                        if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
+                        if (Math.round(scrollTop) >= screenHeight * pageNum && Math.round(scrollTop) < screenHeight * (pageNum + 1)) {
                             outbox.scrollTo({
-                                top: screenHeight * (Math.floor(scrollTop / screenHeight) + 1) + (Distance + 2),
+                                top: screenHeight * (pageNum + 1),
+                                behavior: "smooth"
+                            })
+                        }
+                        if (Math.round(scrollTop) >= screenHeight * 3) {
+                            outbox.scrollTo({
+                                top: screenHeight * (pageNum + 1.01),
                                 behavior: "smooth"
                             })
                         }
                     } else {
-                        if (scrollTop >= screenHeight * (Math.floor(scrollTop / screenHeight)) && scrollTop < screenHeight * (Math.floor(scrollTop / screenHeight) + 1)) {
+                        if (Math.round(scrollTop) >= screenHeight * pageNum && Math.round(scrollTop) < screenHeight * (pageNum + 1)) {
                             outbox.scrollTo({
-                                top: screenHeight * (Math.floor(scrollTop / screenHeight) - 1) + (Distance + 2),
+                                top: screenHeight * (pageNum - 1),
                                 behavior: "smooth"
                             })
                         }
@@ -215,8 +221,8 @@ export default function First() {
                 initTouch(e);
                 window.addEventListener("touchmove", swipeDirection)
             });
-            window.addEventListener("mouseup", () => {
-                window.removeEventListener("mousemove", swipeDirection);
+            window.addEventListener("touchend", () => {
+                window.removeEventListener("touchmove", swipeDirection);
             });
         }
 
@@ -318,10 +324,11 @@ export default function First() {
                     </div>
                 </div>
                 <div className='content' ref={addTocontent}>
+                    <img className={styles.office} src={office} />
                 </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>
-                {/* <div className='content' ref={addTocontent}></div> */}
+                <div className='content' ref={addTocontent}></div>
             </div>
             <div className={styles.slidebutton}>
                 <span ref={addToDot} onClick={() => {
@@ -344,11 +351,11 @@ export default function First() {
                 }}>
                     <p ref={addTodot}></p>
                 </span>
-                {/* <span ref={addToDot} onClick={() => {
+                <span ref={addToDot} onClick={() => {
                     scroll5();
                 }}>
                     <p ref={addTodot}></p>
-                </span> */}
+                </span>
             </div>
             <div className={styles.Rightsidebutton}>
                 <div>
@@ -365,6 +372,7 @@ export default function First() {
                     <img src={Top} />
                 </div>
             </div>
+            <div></div>
             <Banner />
         </>
     )

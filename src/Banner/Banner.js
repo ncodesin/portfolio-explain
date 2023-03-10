@@ -57,8 +57,7 @@ function Banner() {
         <>
             <div className={styles.BannerBox}>
                 <div className={styles.LogoBox}>
-                    <img src={process.env.PUBLIC_URL + '/Image/main/home1.png'} />
-                    <p><span>H</span>ome</p>
+                    <img src={process.env.PUBLIC_URL + '/Image/main/My logo.png'} />
                 </div>
                 <div className={styles.categoryBox}>
                     <p><span ref={addTocate} onClick={(e) => {
