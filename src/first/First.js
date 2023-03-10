@@ -194,8 +194,7 @@ export default function First() {
                                 top: screenHeight * (pageNum + 1),
                                 behavior: "smooth"
                             })
-                        }
-                        if (Math.round(scrollTop) >= screenHeight * 3) {
+                        } else if (Math.round(scrollTop) >= screenHeight * 3) {
                             outbox.scrollTo({
                                 top: screenHeight * (pageNum + 1.01),
                                 behavior: "smooth"
