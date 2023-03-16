@@ -10,6 +10,7 @@ import office from './office2.png'
 
 export default function First() {
 
+
     const containerRef = useRef(null);
     const bannerRef = useRef(null);
     const textAniRef = useRef(null);
@@ -24,6 +25,10 @@ export default function First() {
     DotRef.current = [];
     const Dots = DotRef.current;
     const secondctRef = useRef(null);
+    const ctimgRef = useRef([])
+    ctimgRef.current = [];
+    const ctimg = ctimgRef.current;
+
 
     const addTocontent = (el) => {
         if (el && !contentbox.includes(el)) {
@@ -38,6 +43,11 @@ export default function First() {
     const addToDot = (el) => {
         if (el && !Dots.includes(el)) {
             Dots.push(el)
+        };
+    };
+    const addToimg = (el) => {
+        if (el && !ctimg.includes(el)) {
+            ctimg.push(el)
         };
     };
 
@@ -65,7 +75,7 @@ export default function First() {
         const outbox = outboxRef.current;
         const container = containerRef.current;
         const textAni = textAniRef.current;
-        const colorbox = ["lightgray", "gray", "cornflowerblue", "coral", "orange"];
+        const colorbox = ["lightgray", "lightgray", "cornflowerblue", "coral", "orange"];
         // container.style.marginTop = 111 + "px";
         container.width = window.innerWidth
         container.height = window.innerHeight - 111
@@ -82,6 +92,19 @@ export default function First() {
 
         })
 
+        ctimg.forEach((v, i) => {
+            const top = (contentbox[i].clientHeight - v.clientHeight) / 2 + "px"
+            const height = contentbox[i].clientHeight / 1.5 + "px";
+            v.style.setProperty('--top', top);
+            v.style.setProperty('--height', height);
+        })
+        function scrollaction() {
+            if (outbox.scrollTop > window.innerHeight) {
+                alert('응ㅋ');
+            }
+        }
+        outbox.addEventListener('scroll', scrollaction);
+
         window.addEventListener('resize', () => {
             container.width = window.innerWidth
             container.height = window.innerHeight - 111
@@ -93,7 +116,12 @@ export default function First() {
                 textAni.style.width = container.width + "px"
                 textAni.style.height = container.height + "px"
                 textAni.style.marginTop = 111 + "px"
-
+                ctimg.forEach((v, i) => {
+                    const top = (contentbox[i].clientHeight - v.clientHeight) / 2 + "px"
+                    const height = contentbox[i].clientHeight / 1.5 + "px";
+                    v.style.setProperty('--top', top);
+                    v.style.setProperty('--height', height);
+                })
 
 
             })
@@ -323,7 +351,7 @@ export default function First() {
                     </div>
                 </div>
                 <div className='content' ref={addTocontent}>
-                    <img className={styles.office} src={office} />
+                    <img ref={addToimg} className={styles.office} src={office} />
                 </div>
                 <div className='content' ref={addTocontent}></div>
                 <div className='content' ref={addTocontent}></div>

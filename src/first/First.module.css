@@ -55,7 +55,10 @@ html {
   filter: blur(3px);
 }
 .outbox .office {
+  position: relative;
+  top: var(--top);
   width: 100%;
+  height: var(--height);
   filter: blur(1px);
 }
 
